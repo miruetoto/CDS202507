@@ -290,10 +290,9 @@
                 .slice(0, 20);
 
             const trace = {
-                x: sorted.map(item => item[1]),
-                y: sorted.map(item => item[0]),
+                x: sorted.map(item => item[0]),
+                y: sorted.map(item => item[1]),
                 type: 'bar',
-                orientation: 'h',
                 marker: {
                     color: '#667eea'
                 }
@@ -301,10 +300,13 @@
 
             const layout = {
                 title: '',
-                xaxis: { title: '선택 횟수' },
-                yaxis: { title: '과목명' },
+                xaxis: { 
+                    title: '과목명',
+                    tickangle: -45
+                },
+                yaxis: { title: '선택 횟수' },
                 font: { family: 'Arial', size: 12 },
-                margin: { l: 150 }
+                margin: { b: 120 }
             };
 
             Plotly.newPlot('popularSubjectsChart', [trace], layout);
